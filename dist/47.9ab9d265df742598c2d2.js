@@ -1,0 +1,9 @@
+/*! @version pwa-studio: 0.0.1, @magento/venia-ui: ~11.3.0, @magento/upward-security-headers: ~1.0.14, @magento/pwa-theme-venia: ~2.4.0, @magento/pwa-buildpack: ~11.4.3, @magento/peregrine: ~14.2.1, @magento/pagebuilder: ~9.2.1, @magento/eslint-config: ~1.5.0, @magento/babel-preset-peregrine: ~1.2.3, @apollo/client: ~3.5.0 */
+(window.webpackJsonp=window.webpackJsonp||[]).push([[47],{APR0:function(r,t,i){"use strict"
+i.r(t),i.d(t,"default",function(){return h})
+var n=i("q1tI"),o=i.n(n),s=i("LboF"),e=i.n(s),d=i("uspf"),a={injectType:"singletonStyleTag",insert:"head",singleton:!0},g=(e()(d.a,a),d.a.locals||{}),p=i("y1Xp"),c=i("17x9"),l=r=>{var t=Object(p.a)(g,r.classes),{width:i,color:n,thickness:s,textAlign:e,border:d,borderColor:a,borderWidth:c,borderRadius:l,marginTop:h,marginRight:m,marginBottom:b,marginLeft:u,paddingTop:f,paddingRight:w,paddingBottom:R,paddingLeft:T,cssClasses:x=[]}=r,y={textAlign:e,border:d,borderColor:a,borderWidth:c,borderRadius:l,marginTop:h,marginRight:m,marginBottom:b,marginLeft:u,paddingTop:f,paddingRight:w,paddingBottom:R,paddingLeft:T},v={width:i,borderColor:n,borderWidth:s}
+return o.a.createElement("div",{style:y,className:x.join(" ")},o.a.createElement("hr",{style:v,className:t.hr}))}
+l.propTypes={classes:Object(c.shape)({hr:c.string}),width:c.string,color:c.string,thickness:c.string,textAlign:c.string,border:c.string,borderColor:c.string,borderWidth:c.string,borderRadius:c.string,marginTop:c.string,marginRight:c.string,marginBottom:c.string,marginLeft:c.string,paddingTop:c.string,paddingRight:c.string,paddingBottom:c.string,cssClasses:Object(c.arrayOf)(c.string)}
+var h=l},uspf:function(r,t,i){"use strict"
+var n=i("JPst"),o=i.n(n)()(function(r){return r[1]})
+o.push([r.i,".divider-hr-SpJ {\n    border: 0;\n    border-top: 1px solid #cccccc;\n    display: inline-block;\n    margin-bottom: 20px;\n    margin-top: 20px;\n    max-width: 100%;\n    width: 100%;\n}\n",""]),o.locals={hr:"divider-hr-SpJ"},t.a=o}}])

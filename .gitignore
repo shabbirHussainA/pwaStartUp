@@ -4,9 +4,7 @@ coverage
 node_modules
 storybook-dist
 test-results
-dist
 .DS_Store
-.env
 build-stats.json
 npm-debug.log
 merged-schema*.json

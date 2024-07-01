@@ -1,7 +1,7 @@
 /* src/components/GreetingPage/greetingPage.js */
 
 import React,{useState} from "react";
-import { useParams } from "react-router-dom";
+// import { useParams } from "react-router-dom";
 
 const hi = {
   textAlign: "center",
@@ -13,7 +13,7 @@ const wave = {
 };
 
 const GreetingPage = () => {
-  const { who = "nobody" } = useParams();
+  // const { who = "nobody" } = useParams();//getting the name from the url
   const [formData, setFormData] = useState({
     name: "",
     fatherName: "",
@@ -22,15 +22,15 @@ const GreetingPage = () => {
     message: "",
     address: "",
   });
-
+// for handling the formdata Change
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
-
+// for handling the file data change
   const handleFileChange = (e) => {
     setFormData({ ...formData, file: e.target.files[0] });
   };
-
+// this is for handling submit and consoling the data
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(formData);
@@ -38,7 +38,7 @@ const GreetingPage = () => {
   };
   return (
     <div>
-      <h1 style={hi}>Hello, {who}!</h1>
+      <h1  style={hi}>Hello, you!</h1>
       <h1 style={wave}>{"\uD83D\uDC4B"}</h1>
       <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
   <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
@@ -108,10 +108,8 @@ const GreetingPage = () => {
     />
   </div>
 
-  <button type="submit" style={{ padding: "0.8rem 1.5rem", backgroundColor: "#007bff", color: "#fff", border: "none", borderRadius: "4px", cursor: "pointer" }}>Submit</button>
+  <button type="submit" className="" style={{ padding: "0.8rem 1.5rem", backgroundColor: "#007bff", color: "#fff", border: "none", borderRadius: "4px", cursor: "pointer" }}>Submit</button>
 </form>
-
-
     </div>
   );
 };
