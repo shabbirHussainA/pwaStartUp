@@ -9,7 +9,16 @@ import React, { useState } from 'react';
            }
        }
    `;
-
+const GET_FORMS = gql`
+query GetForms {
+    getForms {
+        id
+        name
+        email
+        message
+    }
+}
+`;
 /**
  * Functional component representing a form for submitting user data.
  * @returns {JSX.Element} Form component
@@ -18,7 +27,9 @@ const GreetingPage = () => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [message, setMessage] = useState('');
-    const [submitForm, { data, loading, error }] = useMutation(SUBMIT_FORM);
+    const [submitForm, { data, loading, error }] = useMutation(SUBMIT_FORM,{
+        refetchQueries:[{query:GET_FORMS}]
+    });
 
     /**
      * Handles form submission by calling the submitForm mutation with user input.
