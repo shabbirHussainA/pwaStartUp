@@ -2148,31 +2148,31 @@
   dependencies:
     es-comments "^1.0.1"
 
-"@magento/eslint-config@~1.5.0":
+"@magento/eslint-config@^1.5.3":
   version "1.5.3"
   resolved "https://registry.yarnpkg.com/@magento/eslint-config/-/eslint-config-1.5.3.tgz#7a9e54386fc255a9df359176ddfa0ce1f4ba37df"
   integrity sha512-nCmdeIFbadK6gLvQ/g3OXXuK8JBrp0Hxt8CZD1uj+824X51jr6W7xRKGabmeNKXifnYXFk0wfu+eeMq86PA3jA==
 
-"@magento/pagebuilder@~9.2.1":
-  version "9.2.1"
-  resolved "https://registry.yarnpkg.com/@magento/pagebuilder/-/pagebuilder-9.2.1.tgz#2e4feb4537e3bb1c450dd18709fc44c0b1746245"
-  integrity sha512-tVf8oLCHvMFXXR/VUKGVmZDN3XKxdvaScpe/UP2yl3YH3wL4cMWHUOfXOzcGAaNVY6MpBEkEjbeMum7/X64dtg==
+"@magento/pagebuilder@^9.3.1":
+  version "9.3.1"
+  resolved "https://registry.yarnpkg.com/@magento/pagebuilder/-/pagebuilder-9.3.1.tgz#438836ec91d0a44bcb5ae3b72b10d805b6ecf10e"
+  integrity sha512-IMaauepvCHDzyv/eD+Sf4QB4ZT/0jsnzithVf/1JgB9b+KyCxGaS9NW2J/22qZVIuW3yESqcHZxzrzoRwI2+8w==
 
-"@magento/peregrine@~14.2.1":
-  version "14.2.1"
-  resolved "https://registry.yarnpkg.com/@magento/peregrine/-/peregrine-14.2.1.tgz#356f4c02388ee8178b2b924b7fa1d2616fb09f03"
-  integrity sha512-fNwj/wojYWOrg6qM6852nDOmnakKKqErAWDahv/sOyF+oW+QAStutGupuxMetJbbSDQ6EHPBeOKU0W7TTgc2Dw==
+"@magento/peregrine@^14.3.1":
+  version "14.3.1"
+  resolved "https://registry.yarnpkg.com/@magento/peregrine/-/peregrine-14.3.1.tgz#afe29eeef242c3b800f9a7eb574f7f4f8909bea2"
+  integrity sha512-P4OZ0SsJ+QLvKKxYQkRX5Ch4ZeSG7zUQWGKMEvLHNoQOwVMzCeZMMzE/Udbt7EiLmjkqKT1C7Sun9uUEe16wDQ==
   dependencies:
     fast-glob "~3.2.4"
     zen-observable-ts "^1.2.0"
 
-"@magento/pwa-buildpack@~11.4.3":
-  version "11.4.3"
-  resolved "https://registry.yarnpkg.com/@magento/pwa-buildpack/-/pwa-buildpack-11.4.3.tgz#4da8ded36fe54eb71b577965ae660b8c6a9df74e"
-  integrity sha512-9NJJjJWug4zkfkfDEESCgWbB+UVBEz45dVWznw3IaQKw9Q9iz7aimy7kXXdyWTQzLbkTe9OCDglPUTlrss1v7w==
+"@magento/pwa-buildpack@^11.5.3":
+  version "11.5.3"
+  resolved "https://registry.yarnpkg.com/@magento/pwa-buildpack/-/pwa-buildpack-11.5.3.tgz#4970fd2820bc379653841c6e1f934f3944a4e4ac"
+  integrity sha512-H5E8x2ZzHU9clXRcz18aoJMyFN8qRgezgMBy/k9NaNlkFBWMdXedZhMV7v/EtQR9p9EnUlVsTmhReMk13OdHDQ==
   dependencies:
     "@magento/directive-parser" "~0.1.7"
-    "@magento/upward-js" "~5.3.2"
+    "@magento/upward-js" "~5.4.2"
     "@pmmmwh/react-refresh-webpack-plugin" "~0.4.3"
     "@yarnpkg/lockfile" "~1.1.0"
     apicache "~1.4.0"
@@ -2221,10 +2221,10 @@
   resolved "https://registry.yarnpkg.com/@magento/pwa-theme-venia/-/pwa-theme-venia-2.4.0.tgz#b1e1b60b516e02b1f00c537a417b03a1acb73c20"
   integrity sha512-kWdEIlN5ZlFlDHmcND/VNJmN3pGjYXUHgouipKM5Szq69w0NCuFl8kdM9jphJFWArCM6GjO7ybSgRu37JbyaAg==
 
-"@magento/upward-js@~5.3.2":
-  version "5.3.2"
-  resolved "https://registry.yarnpkg.com/@magento/upward-js/-/upward-js-5.3.2.tgz#d5efccc546f5336cf19690413a9f7ba3341a3e81"
-  integrity sha512-BUxNnlR90bAAbmlxzsl+/gMFmg9ZF1+9aMoTSALH0peG7AZYeQGJm5sR1owfEEeTjmJOPCnmJ9suWPd0CRkDyA==
+"@magento/upward-js@^5.4.2", "@magento/upward-js@~5.4.2":
+  version "5.4.2"
+  resolved "https://registry.yarnpkg.com/@magento/upward-js/-/upward-js-5.4.2.tgz#6286ef541917f8f708dbc62817e6929ea0e2d01d"
+  integrity sha512-Te1G0XXy7lnLPNWMXyICKz7rNp/eJrEIjiU0nWNEXXk0SJqW3dr9q8RhdqKRIrokOhh0LjlEmvFu13Z6+pjbkQ==
   dependencies:
     "@apollo/client" "~3.5.0"
     camelspace "~1.0.0"
@@ -2246,10 +2246,10 @@
   resolved "https://registry.yarnpkg.com/@magento/upward-security-headers/-/upward-security-headers-1.0.15.tgz#b7cd26c5e505f871ab244ca2005752b7f6f4e98d"
   integrity sha512-KMWkvlwdstiHGpDjx8M1ZD6UukRng+ObamqT1R6ntOU/rbTnYZRZy2emV+euUS2LGTgXNmccElWxUiRGaesxKw==
 
-"@magento/venia-ui@~11.3.0":
-  version "11.3.0"
-  resolved "https://registry.yarnpkg.com/@magento/venia-ui/-/venia-ui-11.3.0.tgz#b2fae46fe802710fb3cc7a36d4e0aac0c76c6102"
-  integrity sha512-u2WuAAx2Oi2veLZZFLxetA3WjiInSDJEB3H8xuh+0F2nJIpGapo8pf7aXtFS/G37s9kivT+DREoIfL/y/LLNHg==
+"@magento/venia-ui@^11.4.0":
+  version "11.4.0"
+  resolved "https://registry.yarnpkg.com/@magento/venia-ui/-/venia-ui-11.4.0.tgz#4a594579fbc05d37886a88bfdd0fb53ad5ef3f7a"
+  integrity sha512-zPFi2/9F5kiYu4n3xoU277UM3WSeAT3omW7m+6I41JMhr0+dNS/lLsDFWNgAC9EXZKrHYAPLvHUa76mtwEpJcQ==
   dependencies:
     informed "~3.29.0"
     jarallax "~1.11.1"
@@ -2267,9 +2267,6 @@
     redux-actions "~2.6.4"
     redux-thunk "~2.3.0"
     uuid "~8.3.2"
-
-"@mageworx/donations-veniapwa@file:./@mageworx/donations-veniapwa":
-  version "1.0.0"
 
 "@mdx-js/mdx@^1.6.22":
   version "1.6.22"
@@ -12371,6 +12368,11 @@ react-helmet-async@^1.0.2, react-helmet-async@^1.0.7:
     react-fast-compare "^3.2.0"
     shallowequal "^1.1.0"
 
+react-icons@^5.2.1:
+  version "5.2.1"
+  resolved "https://registry.yarnpkg.com/react-icons/-/react-icons-5.2.1.tgz#28c2040917b2a2eda639b0f797bff1888e018e4a"
+  integrity sha512-zdbW5GstTzXaVKvGSyTaBalt7HSfuK5ovrzlpyiWHAFXndXTdd/1hdDHI4xBM1Mn7YriT6aqESucFl9kEXzrdw==
+
 react-intl@~5.20.0:
   version "5.20.13"
   resolved "https://registry.yarnpkg.com/react-intl/-/react-intl-5.20.13.tgz#5a9fe1957e9147c31fb026163a1e42112a82a19e"
@@ -15100,8 +15102,10 @@ watchpack@^1.7.4:
   resolved "https://registry.yarnpkg.com/watchpack/-/watchpack-1.7.5.tgz#1267e6c55e0b9b5be44c2023aed5437a2c26c453"
   integrity sha512-9P3MWk6SrKjHsGkLT2KHXdQ/9SNkyoJbabxnKOoJepsvJjJG8uYTR3yTPxPQvNDI3w4Nz1xnE0TLHK4RIVe/MQ==
   dependencies:
+    chokidar "^3.4.1"
     graceful-fs "^4.1.2"
     neo-async "^2.5.0"
+    watchpack-chokidar2 "^2.0.1"
   optionalDependencies:
     chokidar "^3.4.1"
     watchpack-chokidar2 "^2.0.1"

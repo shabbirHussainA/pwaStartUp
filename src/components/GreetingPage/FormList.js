@@ -41,8 +41,17 @@ const FormList = () => {
                         <td>{form.email}</td>
                         <td>{form.message}</td>
                         <td>
-                            <UpdateForm form={form} GET_FORMS={GET_FORMS} />
+                            {/* <UpdateForm form={form} GET_FORMS={GET_FORMS} /> */}
                             <DeleteForm id={form.id} GET_FORMS={GET_FORMS}/>
+                            <div>
+
+                            <Link to={'/FormEdit/'+form.id} >Update</Link>
+                            </div>
+                            <div>
+
+                            <Link to={'/view/'+form.id}>View</Link>
+                            </div>
+
                         </td>
                     </tr>
                 ))}

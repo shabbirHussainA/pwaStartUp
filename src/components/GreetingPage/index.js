@@ -1,3 +1,3 @@
 /* src/components/GreetingPage/index.js */
 
-export { default } from "./greetingPage";
+export { default } from "./submitForm";
