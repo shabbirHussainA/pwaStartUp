@@ -1,3 +1,6 @@
+const moduleOverrideWebpackPlugin = require('./src/webpack/moduleOverrideWebpackPlugin');
+const componentOverrideMapping = require('./src/webpack/componentOverrideMapping')
+
 const { Targetables } = require('@magento/pwa-buildpack');
 
 module.exports = (targets) => {
@@ -21,10 +24,19 @@ module.exports = (targets) => {
             name: 'MyGreetingRoute',
             pattern: '/View/:id',
             path: require.resolve('../components/GreetingPage/SingleForm.js'),
-        });
+        },
+        {
+            name: 'Launch Account',
+            pattern: '/LaunchAccount',
+            path: require.resolve('../addressInquiryPage'),
+        }
+    );
         return routes;
     });
-
+    //to replace the module in node with custom module
+    targets.of('@magento/pwa-buildpack').webpackCompiler.tap(compiler => {
+        new moduleOverrideWebpackPlugin(componentOverrideMapping).apply(compiler);
+    })
     const targetables = Targetables.using(targets);
 
     // Load the 'CreateAccount' component
