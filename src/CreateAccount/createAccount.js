@@ -253,7 +253,7 @@ const CreateAccount = props => {
                     defaultMessage: 'title' // Default label if translation is not available
                 })}
             >
-                <TextInput
+                {/* <TextInput
                     id="title" // Input ID
                     field="customer.title" // Field name for form state
                     autoComplete="given-name" // Input autocomplete attribute
@@ -266,21 +266,10 @@ const CreateAccount = props => {
                         id: 'global.titleRequired', // Message ID for aria-label
                         defaultMessage: 'title Required' // Default aria-label if translation is not available
                     })}
-                />
+                /> */}
                   
-                  {/* <Select
-                    id="title" // Input ID
-                    field="customer.title" // Field name for form state
-                    items={titleOptions} // Options for the dropdown
-                    autoComplete="given-name" // Input autocomplete attribute
-                    validate={isRequired} // Validation function
-                    validateOnBlur // Validate on blur
-                    data-cy="customer-title" // Custom attribute for testing
-                    aria-label={formatMessage({
-                        id: 'global.titleRequired', // Message ID for aria-label
-                        defaultMessage: 'title Required' // Default aria-label if translation is not available
-                    })}
-    /> */}
+                <Select id="title" field='customer.title' validate={isRequired} mask={value => value && value.trim()}  validateOnBlur key={'1'} items={titleOptions}>
+                </Select>
 
 
             </Field>

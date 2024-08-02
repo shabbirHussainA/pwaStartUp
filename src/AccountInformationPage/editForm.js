@@ -7,7 +7,7 @@ import Field from '@magento/venia-ui/lib/components/Field';
 import LinkButton from '@magento/venia-ui/lib/components/LinkButton';
 import Password from '@magento/venia-ui/lib/components/Password';
 import TextInput from '@magento/venia-ui/lib/components/TextInput';
-
+import Select from '@magento/venia-ui/lib/components/Select'
 import {
     isRequired,
     hasLengthAtLeast,
@@ -26,7 +26,13 @@ const EditForm = props => {
     const { formatMessage } = useIntl();
 
     const classes = useStyle(defaultClasses, propClasses);
-
+    const titleOptions = [
+        { label: 'Mr', value: 'Mr' },
+        { label: 'Miss', value: 'Miss' },
+        { label: 'Ms', value: 'Ms' },
+        { label: 'Mrs', value: 'Mrs' },
+        { label: 'Mix', value: 'Mix' },
+    ];
     const maybeNewPasswordField = shouldShowNewPassword ? (
         <div className={classes.newPassword}>
             <Password
@@ -177,11 +183,14 @@ const EditForm = props => {
                             defaultMessage: 'title'
                         })}
                     >
-                        <TextInput
+                        {/* <TextInput
                             field="title" //the data is coming from here 
                             validate={isRequired}
                             data-cy="title"
-                        />
+                        /> */}
+                        <Select field='title'  validate={isRequired}
+                            data-cy="title" items={titleOptions}>
+                        </Select>
                     </Field>
                 </div>
                 <div className={classes.mobile_phone}>
