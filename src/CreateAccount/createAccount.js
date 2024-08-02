@@ -1,24 +1,26 @@
 import React from 'react'; // Importing React to use JSX and create components
 import { FormattedMessage, useIntl } from 'react-intl'; // Importing internationalization utilities for translating messages
 import { Form } from 'informed'; // Importing Form component from 'informed' for form handling and state management
-import { func, shape, string, bool } from 'prop-types'; // Importing PropTypes for validating component props
-import { useCreateAccount } from '@magento/peregrine/lib/talons/CreateAccount/useCreateAccount'; // Importing custom hook for managing create account logic
+import { func, shape, string, bool, number } from 'prop-types'; // Importing PropTypes for validating component props
+import { useCreateAccount } from '../talons/CreateAccount/useCreateAccount'; // Importing custom hook for managing create account logic
 
-import { useStyle } from '../../classify'; // Importing custom hook for applying styles from CSS modules
-import combine from '../../util/combineValidators'; // Importing utility function for combining multiple validation functions
+import { useStyle } from '@magento/venia-ui/lib/classify'; // Importing custom hook for applying styles from CSS modules
+import combine from '@magento/venia-ui/lib/util/combineValidators'; // Importing utility function for combining multiple validation functions
 import {
     hasLengthAtLeast,
     isRequired,
     validatePassword
-} from '../../util/formValidators'; // Importing common validation functions for form fields
-import Button from '../Button'; // Importing Button component for rendering buttons
-import Checkbox from '../Checkbox'; // Importing Checkbox component for rendering checkboxes
-import Field from '../Field'; // Importing Field component to wrap form fields with labels
-import TextInput from '../TextInput'; // Importing TextInput component for text input fields
+} from '@magento/venia-ui/lib/util/formValidators'; // Importing common validation functions for form fields
+import Button from '@magento/venia-ui/lib/components/Button/button'; // Importing Button component for rendering buttons
+import Checkbox from '@magento/venia-ui/lib/components/Checkbox'; // Importing Checkbox component for rendering checkboxes
+import Field from '@magento/venia-ui/lib/components/Field'; // Importing Field component to wrap form fields with labels
+import TextInput from '@magento/venia-ui/lib/components/TextInput'; // Importing TextInput component for text input fields
+import Select from '@magento/venia-ui/lib/components/Select'
+import Option from '@magento/venia-ui/lib/components/Select/option'
 import defaultClasses from './createAccount.module.css'; // Importing default CSS module styles
-import FormError from '../FormError'; // Importing component to display form validation errors
-import Password from '../Password'; // Importing Password component for password input fields
-import GoogleRecaptcha from '../GoogleReCaptcha'; // Importing Google ReCaptcha component for bot protection
+import FormError from '@magento/venia-ui/lib/components/FormError'; // Importing component to display form validation errors
+import Password from '@magento/venia-ui/lib/components/Password'; // Importing Password component for password input fields
+import GoogleRecaptcha from '@magento/venia-ui/lib/components/GoogleReCaptcha'; // Importing Google ReCaptcha component for bot protection
 
 // Define the CreateAccount component
 const CreateAccount = props => {
@@ -40,7 +42,13 @@ const CreateAccount = props => {
         initialValues,
         recaptchaWidgetProps
     } = talonProps;
-
+    const titleOptions = [
+        { label: 'Mr', value: 'Mr' },
+        { label: 'Miss', value: 'Miss' },
+        { label: 'Ms', value: 'Ms' },
+        { label: 'Mrs', value: 'Mrs' },
+        { label: 'Mix', value: 'Mix' },
+    ];
     // Get the internationalization formatter from useIntl hook
     const { formatMessage } = useIntl();
 
@@ -145,7 +153,183 @@ const CreateAccount = props => {
                     })}
                 />
             </Field>
+            {/* custom attribute */}
+            <Field
+                id="middleName" // Field ID
+                label={formatMessage({
+                    id: 'createAccount.middlename', // Message ID for label
+                    defaultMessage: 'middle Name' // Default label if translation is not available
+                })}
+            >
+                <TextInput
+                    id="middleName" // Input ID
+                    field="customer.middlename" // Field name for form state
+                    autoComplete="given-name" // Input autocomplete attribute
+                    validate={isRequired} // Validation function
+                    validateOnBlur // Validate on blur
+                    mask={value => value && value.trim()} // Mask input value
+                    maskOnBlur={true} // Apply mask on blur
+                    data-cy="customer-middlename" // Custom attribute for testing
+                    aria-label={formatMessage({
+                        id: 'global.middlename', // Message ID for aria-label
+                        defaultMessage: 'middle Name Required' // Default aria-label if translation is not available
+                    })}
+                />
+            </Field>
+            {/* company name  */}
+            <Field
+                id="company_name" // Field ID
+                label={formatMessage({
+                    id: 'createAccount.companyNameText', // Message ID for label
+                    defaultMessage: 'company Name' // Default label if translation is not available
+                })}
+            >
+                <TextInput
+                    id="company_name" // Input ID
+                    field="customer.company_name" // Field name for form state
+                    autoComplete="given-name" // Input autocomplete attribute
+                    validate={isRequired} // Validation function
+                    validateOnBlur // Validate on blur
+                    mask={value => value && value.trim()} // Mask input value
+                    maskOnBlur={true} // Apply mask on blur
+                    data-cy="customer-company_name" // Custom attribute for testing
+                    aria-label={formatMessage({
+                        id: 'global.companyNameRequired', // Message ID for aria-label
+                        defaultMessage: 'company Name Required' // Default aria-label if translation is not available
+                    })}
+                />
+            </Field>
+            {/* building floor  */}
+            <Field
+                id="building_floor" // Field ID
+                label={formatMessage({
+                    id: 'createAccount.BuildingFloorText', // Message ID for label
+                    defaultMessage: 'building floor' // Default label if translation is not available
+                })}
+            >
+                <TextInput
+                    id="building_floor" // Input ID
+                    field="customer.building_floor" // Field name for form state
+                    autoComplete="given-name" // Input autocomplete attribute
+                    validate={isRequired} // Validation function
+                    validateOnBlur // Validate on blur
+                    mask={value => value && value.trim()} // Mask input value
+                    maskOnBlur={true} // Apply mask on blur
+                    data-cy="customer-building_floor" // Custom attribute for testing
+                    aria-label={formatMessage({
+                        id: 'global.BuildingFloorRequired', // Message ID for aria-label
+                        defaultMessage: 'Building Floor Required' // Default aria-label if translation is not available
+                    })}
+                />
+            </Field>
+            {/* department */}
+            <Field
+                id="department" // Field ID
+                label={formatMessage({
+                    id: 'createAccount.departmentText', // Message ID for label
+                    defaultMessage: 'department' // Default label if translation is not available
+                })}
+            >
+                <TextInput
+                    id="department" // Input ID
+                    field="customer.department" // Field name for form state
+                    autoComplete="given-name" // Input autocomplete attribute
+                    validate={isRequired} // Validation function
+                    validateOnBlur // Validate on blur
+                    mask={value => value && value.trim()} // Mask input value
+                    maskOnBlur={true} // Apply mask on blur
+                    data-cy="customer-department" // Custom attribute for testing
+                    aria-label={formatMessage({
+                        id: 'global.departmentRequired', // Message ID for aria-label
+                        defaultMessage: 'department Required' // Default aria-label if translation is not available
+                    })}
+                />
+            </Field>
+            {/* title */}
+            <Field
+                id="title" // Field ID
+                label={formatMessage({
+                    id: 'createAccount.titleText', // Message ID for label
+                    defaultMessage: 'title' // Default label if translation is not available
+                })}
+            >
+                <TextInput
+                    id="title" // Input ID
+                    field="customer.title" // Field name for form state
+                    autoComplete="given-name" // Input autocomplete attribute
+                    validate={isRequired} // Validation function
+                    validateOnBlur // Validate on blur
+                    mask={value => value && value.trim()} // Mask input value
+                    maskOnBlur={true} // Apply mask on blur
+                    data-cy="customer-title" // Custom attribute for testing
+                    aria-label={formatMessage({
+                        id: 'global.titleRequired', // Message ID for aria-label
+                        defaultMessage: 'title Required' // Default aria-label if translation is not available
+                    })}
+                />
+                  
+                  {/* <Select
+                    id="title" // Input ID
+                    field="customer.title" // Field name for form state
+                    items={titleOptions} // Options for the dropdown
+                    autoComplete="given-name" // Input autocomplete attribute
+                    validate={isRequired} // Validation function
+                    validateOnBlur // Validate on blur
+                    data-cy="customer-title" // Custom attribute for testing
+                    aria-label={formatMessage({
+                        id: 'global.titleRequired', // Message ID for aria-label
+                        defaultMessage: 'title Required' // Default aria-label if translation is not available
+                    })}
+    /> */}
 
+
+            </Field>
+            {/* mobile phone */}
+            <Field
+                id="mobile_phone" // Field ID
+                label={formatMessage({
+                    id: 'createAccount.mobilePhoneText', // Message ID for label
+                    defaultMessage: 'mobile_phone' // Default label if translation is not available
+                })}
+            >
+                <TextInput
+                    id="mobile_phone" // Input ID
+                    field="customer.mobile_phone" // Field name for form state
+                    autoComplete="given-name" // Input autocomplete attribute
+                    validate={isRequired} // Validation function
+                    validateOnBlur // Validate on blur
+                    mask={value => value && value.trim()} // Mask input value
+                    maskOnBlur={true} // Apply mask on blur
+                    data-cy="customer-mobile_phone" // Custom attribute for testing
+                    aria-label={formatMessage({
+                        id: 'global.mobilePhoneRequired', // Message ID for aria-label
+                        defaultMessage: 'mobile phone Required' // Default aria-label if translation is not available
+                    })}
+                />
+            </Field>
+            {/* profession */}
+            <Field
+                id="profession" // Field ID
+                label={formatMessage({
+                    id: 'createAccount.professionText', // Message ID for label
+                    defaultMessage: 'profession' // Default label if translation is not available
+                })}
+            >
+                <TextInput
+                    id="profession" // Input ID
+                    field="customer.profession" // Field name for form state
+                    autoComplete="given-name" // Input autocomplete attribute
+                    validate={isRequired} // Validation function
+                    validateOnBlur // Validate on blur
+                    mask={value => value && value.trim()} // Mask input value
+                    maskOnBlur={true} // Apply mask on blur
+                    data-cy="customer-profession" // Custom attribute for testing
+                    aria-label={formatMessage({
+                        id: 'global.professionRequired', // Message ID for aria-label
+                        defaultMessage: 'profession Required' // Default aria-label if translation is not available
+                    })}
+                />
+            </Field>
             {/* Last Name Field */}
             <Field
                 id="lastName" // Field ID
@@ -256,7 +440,13 @@ CreateAccount.propTypes = {
         firstName: string, // Initial first name value
         custom_cust_attribute: string,
         middleName: string, // Initial middle name value
-        lastName: string // Initial last name value
+        lastName: string, // Initial last name value
+        company_name: String ,
+        building_floor: String,
+        department: String ,
+        title: String ,
+        mobile_phone:String ,
+        profession: String,
     }),
     isCancelButtonHidden: bool, // Flag to hide or show the cancel button
     onSubmit: func, // Function to call on form submit

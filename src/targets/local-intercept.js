@@ -1,5 +1,5 @@
-const moduleOverrideWebpackPlugin = require('./src/webpack/moduleOverrideWebpackPlugin');
-const componentOverrideMapping = require('./src/webpack/componentOverrideMapping')
+const moduleOverrideWebpackPlugin = require('../webpack/moduleOverrideWebpackPlugin.js');
+const componentOverrideMapping = require('../webpack/componentOverrideMapping')
 
 const { Targetables } = require('@magento/pwa-buildpack');
 
