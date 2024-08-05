@@ -51,7 +51,7 @@ export const useAccountInformationPage = props => {
             loading: isChangingCustomerPassword
         }
     ] = useMutation(changeCustomerPasswordMutation);
-
+   
     const {
         generateReCaptchaData,
         recaptchaLoading,
@@ -199,8 +199,11 @@ export const useAccountInformationPage = props => {
                 });
     
                 handleCancel(false);
-            } catch {
+            } catch(error) {
+                // handleCancel(false);
                 setDisplayError(true);
+                console.log("this is the error: "+ error.message)
+                // handleCancel(false);
                 return;
             }
         },
@@ -216,7 +219,7 @@ export const useAccountInformationPage = props => {
     
 
     const errors = displayError
-        ? [customerInformationUpdateError, customerPasswordChangeError]
+        ? [customerInformationUpdateError,customerPasswordChangeError]
         : []; //displaying error if any
 
     return {

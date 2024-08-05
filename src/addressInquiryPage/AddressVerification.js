@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useMutation, gql } from '@apollo/client';
 import { useHistory } from 'react-router-dom';
 import {GET_ADDRESS_INQUIRIES,SUBMIT_FORM} from './addressInquiry.gql'
-
+import Modal from '../companyRegisterationPage/Modal';
 
 /**
  * Functional component representing a form for submitting user data.
@@ -10,12 +10,15 @@ import {GET_ADDRESS_INQUIRIES,SUBMIT_FORM} from './addressInquiry.gql'
  */
 const AddressVerification = () => {
     const history = useHistory();
+    const [openModal, setOpenModal] = useState(false)
+
     const [postcode, setPostcode] = useState('');
     const [email, setEmail] = useState('');
     const [buildingname, setBuildingName] = useState('');
     const [message, setMessage] = useState('');
     const [active, setActive] = useState(false);
     const [behaviour, setBehaviour] = useState('');
+
     const [submitAddressInquiry, { data, loading, error }] = useMutation(SUBMIT_FORM, {
         refetchQueries: [{ query: GET_ADDRESS_INQUIRIES }]
     });
@@ -41,6 +44,8 @@ const AddressVerification = () => {
             setMessage("We deliver in your region but your building is not registered. Kindly register first.");
             setBehaviour('building not found');
             setActive(false);
+            setOpenModal(true);
+            <Modal/>
         } else {
             setMessage("Sorry, we are not available in your region.");
             setBehaviour('not available');
@@ -75,6 +80,7 @@ const AddressVerification = () => {
 
     return (
         <>
+         {openModal && <Modal modalclose={setOpenModal}/>}
             <form onSubmit={handleSubmit}>
                 <div>
                     <label>Postcode:</label>

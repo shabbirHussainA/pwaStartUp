@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useMutation, gql } from '@apollo/client';
 import {useHistory} from 'react-router-dom';
 import {AiFillApple} from 'react-icons/ai'
-
+import Modal from '../../companyRegisterationPage/Modal';
 
 //mutation to send the data into mysql DB
    const SUBMIT_FORM = gql`
@@ -36,7 +36,7 @@ const GreetingPage = () => {
     const [submitForm, { data, loading, error }] = useMutation(SUBMIT_FORM,{
         refetchQueries:[{query:GET_FORMS}]
     });
-
+    
     /**
      * Handles form submission by calling the submitForm mutation with user input.
      * @param {Event} e - The form submit event
@@ -61,6 +61,8 @@ const GreetingPage = () => {
     }
 
     return (
+        <>
+        
         <form onSubmit={handleSubmit}>
             <div>
              
@@ -82,7 +84,13 @@ const GreetingPage = () => {
             <button type="submit" disabled={loading}>Submit</button>
             {data && <p>{data.submitForm.message}</p>}
             {error && <p>Error: {error.message}</p>}
+          
         </form>
+        <button onClick={()=> setOpenModal(!openModal)}>open dialog</button>
+       
+        </>
+
+        
     );
 };
 

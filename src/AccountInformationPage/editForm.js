@@ -46,6 +46,7 @@ const EditForm = props => {
                     [hasLengthAtLeast, 8],
                     validatePassword,
                     [isNotEqualToField, 'password']
+                    // []
                 ])}
                 isToggleButtonHidden={false}
                 data-cy="newPassword"
