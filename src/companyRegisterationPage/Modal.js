@@ -10,14 +10,19 @@ function Modal({
     const [closingTime, setClosingTime] = useState('');
     const [numEmployees, setNumEmployees] = useState('');
     const [managerContact, setManagerContact] = useState('');
+    const [customerror, setcustomerror] = useState()
     const [start, setstart] = useState(false)
     const [submitCompanyRegistration, { data, loading, error }] = useMutation(SUBMIT_FORM, {
         refetchQueries: [{ query: GET_COMPANY_REGISERATION }]
     });
     const handleSubmit = (event) => {
         event.preventDefault();
-      
-        setstart(true)
+        if(numEmployees.includes('.') ){
+           setcustomerror('please remove the decimal')
+        }else{
+
+            setstart(true)
+        }
     }
   
     useEffect(() => {
@@ -35,6 +40,7 @@ function Modal({
                     setManagerContact('');
                     setNumEmployees('');
                     setOpeningTime('');
+                    setcustomerror('');
                     setstart(false);
                     // console.log(data.message)
                 } catch (err) {
@@ -93,8 +99,11 @@ function Modal({
                     value={numEmployees}
                     onChange={(e) => setNumEmployees(e.target.value)}
                     required
+                    // pattern='[0-9]'
+                    
                 />
             </div>
+            {customerror && <p>{customerror}</p> }
             <div>
                 <label>Manager Contact Number:</label>
                 <input

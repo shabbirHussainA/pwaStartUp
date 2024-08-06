@@ -41,13 +41,13 @@ const AddressVerification = () => {
             setBehaviour('can Deliver');
             setActive(true);
         } else if (!buildingArray.includes(trimmedBuildingname) && pcodeArray.includes(trimmedPostcode)) {
-            setMessage("We deliver in your region but your building is not registered. Kindly register first.");
+            setMessage("Hey great news! We are in your area, but before you can sign up we need you to help us with the simple process of getting your company registered for the service.");
             setBehaviour('building not found');
             setActive(false);
             setOpenModal(true);
-            <Modal/>
+            // <Modal/>
         } else {
-            setMessage("Sorry, we are not available in your region.");
+            setMessage("Sorry, we’re not available in your area yet, but hope to be soon!");
             setBehaviour('not available');
             setActive(false);
         }
@@ -91,13 +91,14 @@ const AddressVerification = () => {
                     <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
                 </div>
                 <div>
-                    <label>Address:</label>
+                    <label>Building Name:</label>
                     <textarea value={buildingname} onChange={(e) => setBuildingName(e.target.value)} required />
                 </div>
                 <button type="submit" disabled={loading}>Submit</button>
             </form>
-            {data && <p>{data.submitAddressInquiry.message}</p>}
-            {error && <p>Error: {error.message}</p>}
+            {data && console.log(data.submitAddressInquiry.message)}
+            {error && console.log(error.message)}
+            {message && <p>{message}</p>}
         </>
     );
 };
