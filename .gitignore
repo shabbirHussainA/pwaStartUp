@@ -1,14 +1,14 @@
-.idea
-.vscode
-coverage
+# .idea
+# .vscode
+# coverage
 
-storybook-dist
-test-results
-.DS_Store
-build-stats.json
-npm-debug.log
-merged-schema*.json
-test-report.xml
-test-results.json
-yarn-error.log
-template.generated.html
+# storybook-dist
+# test-results
+# .DS_Store
+# build-stats.json
+# npm-debug.log
+# merged-schema*.json
+# test-report.xml
+# test-results.json
+# yarn-error.log
+# template.generated.html
