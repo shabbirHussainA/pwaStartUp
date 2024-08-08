@@ -1,9 +1,12 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useMutation, gql } from '@apollo/client';
 import {useHistory} from 'react-router-dom';
 import {AiFillApple} from 'react-icons/ai'
 import Modal from '../../companyRegisterationPage/Modal';
-
+import { useEventingContext } from '@magento/peregrine/lib/context/eventing';
+// import { useSelector, useDispatch } from 'react-redux';
+import { useUserContext } from '@magento/peregrine/lib/context/user';
+// import {getUserDetails} from '@magento/peregrine/lib/store/actions/user'
 //mutation to send the data into mysql DB
    const SUBMIT_FORM = gql`
        mutation SubmitForm($input: FormInput!) {
@@ -28,6 +31,10 @@ query GetForms {
  * @returns {JSX.Element} Form component
  */
 const GreetingPage = () => {
+    // const dispatch = useDispatch();
+    
+    const [{ currentUser }] = useUserContext();
+
     const history = useHistory();
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
@@ -87,7 +94,12 @@ const GreetingPage = () => {
           
         </form>
         <button onClick={()=> setOpenModal(!openModal)}>open dialog</button>
-       
+        {/* <p>First Name: {isSignedIn}</p> */}
+            {/* <button onClick={fetchUserDetails}>Fetch User Details</button> */}
+            {
+                console.log(currentUser.firstname)
+            }
+            <h1>{currentUser.firstname}</h1>
         </>
 
         
