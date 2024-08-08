@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useMutation, gql } from '@apollo/client';
 import {useHistory} from 'react-router-dom';
-import {AiFillApple} from 'react-icons/ai'
-import Modal from '../../companyRegisterationPage/Modal';
-import { useEventingContext } from '@magento/peregrine/lib/context/eventing';
+import DEFAULT_OPERATIONS from '@magento/peregrine/lib/talons/SignIn/signIn.gql';
+import { useAwaitQuery } from '@magento/peregrine/lib/hooks/useAwaitQuery';
+// import { useEventingContext } from '@magento/peregrine/lib/context/eventing';
 // import { useSelector, useDispatch } from 'react-redux';
 import { useUserContext } from '@magento/peregrine/lib/context/user';
 // import {getUserDetails} from '@magento/peregrine/lib/store/actions/user'
@@ -33,8 +33,12 @@ query GetForms {
 const GreetingPage = () => {
     // const dispatch = useDispatch();
     
-    const [{ currentUser }] = useUserContext();
+    const {
+        getCustomerQuery,
+    } = DEFAULT_OPERATIONS;
 
+    const [{ currentUser },{getUserDetails}] = useUserContext();
+    const fetchUserDetails = useAwaitQuery(getCustomerQuery);
     const history = useHistory();
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
@@ -66,7 +70,10 @@ const GreetingPage = () => {
     const handleImageChange = (e)=>{
         setImage(e.target.files[0])
     }
-
+    useEffect(() => {
+        // Fetch user details on component mount and whenever currentUser changes
+        getUserDetails({fetchUserDetails});
+    }, [currentUser,getUserDetails]);
     return (
         <>
         
@@ -96,9 +103,7 @@ const GreetingPage = () => {
         <button onClick={()=> setOpenModal(!openModal)}>open dialog</button>
         {/* <p>First Name: {isSignedIn}</p> */}
             {/* <button onClick={fetchUserDetails}>Fetch User Details</button> */}
-            {
-                console.log(currentUser.firstname)
-            }
+
             <h1>{currentUser.firstname}</h1>
         </>
 

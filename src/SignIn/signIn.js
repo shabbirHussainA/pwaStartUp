@@ -15,7 +15,8 @@ import LinkButton from '@magento/venia-ui/lib/components/LinkButton';
 import Password from '@magento/venia-ui/lib/components/Password';
 import FormError from '@magento/venia-ui/lib/components/FormError/formError';
 import GoogleRecaptcha from '@magento/venia-ui/lib/components/GoogleReCaptcha';
-import {useHistory} from 'react-router-dom'
+import {useHistory,Link} from 'react-router-dom'
+
 
 const SignIn = props => {
     const history = useHistory();
@@ -123,18 +124,22 @@ const SignIn = props => {
                 </div>
                 <GoogleRecaptcha {...recaptchaWidgetProps} />
                 <div className={classes.buttonsContainer}>
+                   
                     <Button
                         priority="high"
                         type="submit"
                         onKeyDown={signinHandleEnterKeyPress}
                         data-cy="SignInButton-root_highPriority"
                         disabled={isBusy}
+                       
                     >
                         <FormattedMessage
                             id={'signIn.signInText'}
                             defaultMessage={'Sign In'}
                         />
                     </Button>
+                    
+                 
                     
                     
                     <Button
